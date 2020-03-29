@@ -23,17 +23,29 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class MainTest
 {
-    private static final String Fichier = "gamesAdvancedStats-StdDevs.arff";
-    private static final String CheminAcces = "C:/Users/luco0/Desktop/Cours/s4/fouilleDonnees/arffs"; //Attention, les fichiers doivent être organiser suivant des dossiers nommé 2008, 2009 ...,  dans l'exemple ci contre, il doivent ce trouver dans le dossier arffs
-    private static final int borneInf = 2008;
-    private static final int borneMax = 2017;
+    private static String Fichier = "gamesAdvancedStats-StdDevs.arff";
+    private static String CheminAcces = "C:/Users/luco0/Desktop/Cours/s4/fouilleDonnees/arffs"; //Attention, les fichiers doivent être organiser suivant des dossiers nommé 2008, 2009 ...,  dans l'exemple ci contre, il doivent ce trouver dans le dossier arffs
+    private static int borneInf = 2008;
+    private static int borneMax = 2017;
     private static FileWriter fichier;
     private static FileWriter fichier2;
 
     public static void main(String[] args) throws Exception
     {
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Entrez le nom de vos fichiers : (ex : gamesAdvancedStats-StdDevs.arff)");
+        Fichier = scan.nextLine();
+        System.out.println("Entrez le chemin d'accés à votre dossier contenant les dates : (ex : C:/Users/luco0/Desktop/Cours/s4/fouilleDonnees/arffs)");
+        CheminAcces = scan.nextLine();
+        System.out.println("Borne années inférieur : (ex : 2008)");
+        borneInf = scan.nextInt();
+        System.out.println("Borne années supérieur : (ex : 2017)");
+        borneMax = scan.nextInt();
+
+
         long depart = System.currentTimeMillis();
-        System.out.println("Depart à : depart");
+        System.out.println("Depart à : "+depart);
         fichier = new FileWriter("resultat.txt");
         fichier2 = new FileWriter("selection.txt");
 
